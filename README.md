@@ -41,7 +41,7 @@ Before using the app, make sure you have the following:
 
 ### Installation
 
-1. Open [Website](https://habibaahmedm-002-site3.atempurl.com/)
+1. Open [Website](https://habibaahmedm-002-site10.atempurl.com/)
 
 2. Start exploring Website!
 
