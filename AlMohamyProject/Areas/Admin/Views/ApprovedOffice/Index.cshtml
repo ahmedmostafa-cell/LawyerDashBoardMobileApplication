@@ -1,0 +1,116 @@
+﻿@model AlMohamyProject.Models.HomePageModel
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4"><span class="text-muted fw-light">لوحة التحكم /</span> المكاتب المعتمدة</h4>
+   @* <a asp-area="Admin" asp-controller="ApprovedOffice" asp-action="Form"><button type="button" class="btn btn-primary">اضف عنصر جديد ف المكاتب المعتمدة</button></a>*@
+    <!-- DataTable with Buttons -->
+    <div class="card" style="width:1600px">
+        <div class="data_table">
+            <table id="example" class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>   حالة التفعيل</th>
+                        <th>   اسم صاحب الطلب</th>
+                        <th>   رقم تليفون صاحب الطلب</th>
+                         <th>   ايميل صاحب الطلب</th>
+                        <th>  اسم المكتب المعتمد</th>
+                        <th>  اسم المنطقة</th>
+                        <th> اسم المدينة</th>
+                        <th>  لوجو المكتب</th>
+                        <th>  ملف الرخصة</th>
+                        
+                        <th>تعديل</th>
+
+                        <th>اعتماد او رفض الاعتماد</th>
+
+                        <th>حذف</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.lstApprovedOffices)
+                    {
+
+                        <tr>
+                            <td>@item.ApprovalStatus</td>
+                            <td>@item.UserFirsName</td>
+                            <td>@item.UserPhoneNumber</td>
+                            <td>@item.UserEmail</td>
+                            <td>@item.ApprovedOfficeName</td>
+                            <td>
+                                @item.AreaName
+                            </td>
+                            <td>
+                                @item.CityName
+                            </td>
+
+                             <td style="width:10%">
+
+                                <img style="max-width: 100%; " max-height: 100%;" src="@string.Format("/Uploads/{0}",item.ApprovedOfficeLogo)" alt="Img placeholder">
+
+
+
+
+
+                                </td>
+                            <td class="product-img">
+                                <a href="@string.Format("/Uploads/{0}",item.ApprovedOfficeLicenseDoc)" class="btn btn-primary">Read Now</a>
+                            </td>
+                            <td>
+                                <a asp-area="Admin" asp-controller="ApprovedOffice" asp-action="Form" asp-route-id="@item.ApprovedOfficeId" class="btn btn-info text-white" style="cursor:pointer">
+                                    تعديل
+                                </a>
+                            </td>
+                            @if(item.ApprovalStatus == "مفعل") 
+                            {
+                                <td>
+                                    <a asp-area="Admin" asp-controller="ApprovedOffice" asp-action="ApproveOffice" asp-route-id="@item.ApprovedOfficeId" class="btn btn-info text-white" style="cursor:pointer">
+                                          الرفض
+                                    </a>
+                                </td>
+
+                            }
+                            else 
+                            {
+                                <td>
+                                    <a asp-area="Admin" asp-controller="ApprovedOffice" asp-action="ApproveOffice" asp-route-id="@item.ApprovedOfficeId" class="btn btn-info text-white" style="cursor:pointer">
+                                        الاعتماد  
+                                    </a>
+                                </td>
+
+                            }
+                           
+                            <td>
+                                <a asp-area="Admin" asp-controller="ApprovedOffice" asp-action="Delete" asp-route-id="@item.ApprovedOfficeId" class="btn btn-danger text-white" style="cursor:pointer">
+                                    حذف
+                                </a>
+                            </td>
+
+
+                        </tr>
+
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal to add new record -->
+    <div class="offcanvas offcanvas-end" id="add-new-record">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title" id="exampleModalLabel">New Record</h5>
+            <button type="button"
+                    class="btn-close text-reset"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+        </div>
+
+    </div>
+    <!--/ DataTable with Buttons -->
+
+    <hr class="my-5" />
+
+
+    <!--/ Content -->
+</div>

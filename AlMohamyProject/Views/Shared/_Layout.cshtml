@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لوحة تحكم تطبيق المستشار</title>
+    <link rel="apple-touch-icon" href="~/Admin/app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Admin/app-assets/images/ico/favicons.ico">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" crossorigin="anonymous" />
+    <link rel="manifest" href="~/manifest.json">
+    <style>
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+       
+        /*  body {
+                                    background-image: url("/Uploads/1.jpg");
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+
+                                }*/
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">لوحة تحكم تطبيق المستشار</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                   @* <partial name="_LoginPartial" />*@
+                    <partial name="_LoginPartialCustom" />
+                    <ul class="navbar-nav flex-grow-1">
+                       @* <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">الصفحة الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">السياسة و الخصوصية</a>
+                        </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">المستخدمين</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">الصلاحيات</a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <partial name="_Notifications" />
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+             <a target="_blank" href="https://visooft.com/">جميع الحقوق محفوظة لـ رؤي برمجية</a>
+        </div>
+    </footer>
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("/ServiceWorker.js");
+            });
+        }
+    </script>
+    <script src="~/js/background-slider.js"></script>
+    @RenderSection("Scripts", required: false)
+   
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿@model AlMohamyProject.Models.HomePageModel
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4"><span class="text-muted fw-light">لوحة التحكم /</span>  شحن المحافظ</h4>
+   
+    <!-- DataTable with Buttons -->
+    <div class="card">
+        <div class="data_table">
+            <table id="example" class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>اسم الشاحن</th>
+                        <th>اسم المستقب</th>
+                        <th>نوع الشحن</th>
+                        <th>قيمة الشحن</th>
+                        <th>تاريخ الشحن</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.lstCharges)
+                    {
+
+                        <tr>
+                            <td>@item.SenderName</td>
+                            <td>@item.RecieverName</td>
+                            <td>
+                                @item.ChargeTypeSender
+                            </td>
+                            <td>
+                                @item.ChargeValue
+                            </td>
+                            <td>
+                                @item.CreatedDate
+                            </td>
+
+
+
+
+
+                        </tr>
+
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+   
+</div>

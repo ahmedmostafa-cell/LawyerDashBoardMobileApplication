@@ -1,0 +1,103 @@
+﻿@model AlMohamyProject.Models.HomePageModel
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4"><span class="text-muted fw-light">لوحة التحكم /</span>  الاعدادات</h4>
+    @*<a asp-area="Admin" asp-controller="Setting" asp-action="Form"><button type="button" class="btn btn-primary">اضف عنصر جديد ف  الاعدادات</button></a>*@
+    <!-- DataTable with Buttons -->
+    <div class="card" style="width:1500px;">
+        <div class="data_table">
+            <table id="example" class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>    ضريبة القيمة المضافة</th>
+                        <th> نسبة ربح التطبيق    </th>
+                        <th>عدد دقائق صلاحية العرض </th>
+                          
+                        <th>اقل وقت بالساعة بين استشارتتين متتاليتين للمحامي </th>
+                        <th>اقل مبلغ يستطيع المستخدم وضعه لقيمة استشارة غير محددة للمحامي </th>
+                        <th>اعلي قيمة استشارة ثلاثون دقيقة </th>
+                        <th>اعلي قيمة استشارة ستون دقيقة </th>
+                        <th>اعلي قيمة استشارة تسعون دقيقة </th>
+                        <th>تعديل</th>
+
+                        <th>حذف</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.lstSettings)
+                    {
+
+                        <tr>
+                            <td>@item.ValueAddedTax</td>
+                            <td>
+                                @item.AppProfitPercent
+                            </td>
+                            <td>
+                                @item.OffersValidityDays
+                            </td>
+                             <td>
+                                @item.TimeBetweenTwoConsultation
+                            </td>
+                            <td>
+                                @item.LowestConsultUnSpecifiedValue
+                            </td>
+                            <td>
+                                @item.Consulting30MinutesCost
+                            </td>
+                             <td>
+                                @item.Consulting60MinutesCost
+                            </td>
+                            <td>
+                                @item.Consulting90MinutesCost
+                            </td>
+                          
+
+                            @* <td style="width:10%">
+
+                        <img style="max-width: 100%; " max-height: 100%;" src="@string.Format("/Uploads/{0}",item.AboutAppForWhom)" alt="Img placeholder">
+
+
+
+
+
+                        </td>*@
+                            <td>
+                                <a asp-area="Admin" asp-controller="Setting" asp-action="Form" asp-route-id="@item.SettingId" class="btn btn-info text-white" style="cursor:pointer">
+                                    تعديل
+                                </a>
+                            </td>
+                            <td>
+                                <a asp-area="Admin" asp-controller="Setting" asp-action="Delete" asp-route-id="@item.SettingId" class="btn btn-danger text-white" style="cursor:pointer">
+                                    حذف
+                                </a>
+                            </td>
+
+
+                        </tr>
+
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal to add new record -->
+    <div class="offcanvas offcanvas-end" id="add-new-record">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title" id="exampleModalLabel">New Record</h5>
+            <button type="button"
+                    class="btn-close text-reset"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+        </div>
+
+    </div>
+    <!--/ DataTable with Buttons -->
+
+    <hr class="my-5" />
+
+
+    <!--/ Content -->
+</div>

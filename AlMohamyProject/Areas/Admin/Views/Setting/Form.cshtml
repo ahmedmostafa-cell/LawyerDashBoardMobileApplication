@@ -1,0 +1,84 @@
+﻿@model Domains.TbSetting
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">لوحة التحكم/</span>   الاعدادات
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header">عناصر عن التطبيق</h5>
+                <form enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="Setting" asp-action="Save" class="card-body">
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input type="hidden" asp-for="SettingId">
+                            <input type="hidden" asp-for="CreatedDate">
+                            <label class="form-label" for="basic-default-fullname">ضريبة القيمة المضافة</label>
+                            <input asp-for="ValueAddedTax" type="text" class="form-control" id="basic-default-fullname" placeholder="  ضريبة القيمة المضافة" />
+                            <span asp-validation-for="ValueAddedTax" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">  نسبة ربح التطبيق</label>
+                            <input asp-for="AppProfitPercent" type="text" class="form-control" id="basic-default-company" placeholder="  نسبة ربح التطبيق" />
+                            <span asp-validation-for="AppProfitPercent" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">    عدد دقائق صلاحية العرض</label>
+                            <input asp-for="OffersValidityDays" type="text" class="form-control" id="basic-default-company" placeholder="    عدد ايام صلاحية العرض" />
+                            <span asp-validation-for="OffersValidityDays" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">    اقل وقت بالساعة بين استشارتتين متتاليتين للمحامي</label>
+                            <input asp-for="TimeBetweenTwoConsultation" type="text" class="form-control" id="basic-default-company" placeholder="    عدد ايام صلاحية العرض" />
+                            <span asp-validation-for="TimeBetweenTwoConsultation" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">    اقل مبلغ يستطيع المستخدم وضعه لقيمة استشارة غير محددة للمحامي</label>
+                            <input asp-for="LowestConsultUnSpecifiedValue" type="text" class="form-control" id="basic-default-company" placeholder="    اقل مبلغ يستطيع المستخدم وضعه لقيمة استشارة غير محددة للمحامي" />
+                            <span asp-validation-for="LowestConsultUnSpecifiedValue" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">    اعلي قيمة استشارة ثلاثون دقيقة</label>
+                            <input asp-for="Consulting30MinutesCost" type="text" class="form-control" id="basic-default-company" placeholder="   اعلي قيمة استشارة ثلاثون دقيقة" />
+                            <span asp-validation-for="Consulting30MinutesCost" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">    اعلي قيمة استشارة ستون دقيقة</label>
+                            <input asp-for="Consulting60MinutesCost" type="text" class="form-control" id="basic-default-company" placeholder="    اعلي قيمة استشارة ستون دقيقة" />
+                            <span asp-validation-for="Consulting60MinutesCost" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">    اعلي قيمة استشارة تسعون دقيقة</label>
+                            <input asp-for="Consulting90MinutesCost" type="text" class="form-control" id="basic-default-company" placeholder="   اعلي قيمة استشارة تسعون دقيقة" />
+                            <span asp-validation-for="Consulting90MinutesCost" class="text-danger"></span>
+                        </div>
+                       
+
+                    </div>
+                    <div class="pt-4">
+                        <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+
+ }

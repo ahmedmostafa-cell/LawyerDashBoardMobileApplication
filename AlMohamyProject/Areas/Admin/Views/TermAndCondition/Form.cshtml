@@ -1,0 +1,61 @@
+﻿@model Domains.TbTermAndCondition
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">لوحة التحكم/</span>   الشروط و الاحكام
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header">عناصر  الشروط و الاحكام</h5>
+                <form enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="TermAndCondition" asp-action="Save" class="card-body">
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input type="hidden" asp-for="TermsAndConditionsId">
+                            <input type="hidden" asp-for="CreatedDate">
+                            <label class="form-label" for="basic-default-fullname">عنوان  الشروط و الاحكام  </label>
+                            <input asp-for="TermsAndConditionsTitle" type="text" class="form-control" id="basic-default-fullname" placeholder="  عنوان  الشروط و الاحكام" />
+                            <span asp-validation-for="TermsAndConditionsTitle" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">تفاصيل  الشروط و الاحكام</label>
+                            <input asp-for="TermsAndConditionsDescription" type="text" class="form-control" id="basic-default-company" placeholder="تفاصيل  الشروط و الاحكام" />
+                            <span asp-validation-for="TermsAndConditionsDescription" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="multicol-country">موجهة لمن</label>
+                            <select asp-for="TermsAndConditionsForWhom" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر موجهة لمن</option>
+                                <option value="المحامي" data-select2-id="29">المحامي</option>
+                                <option value="المستخدم" data-select2-id="30">المستخدم</option>
+                            </select>
+                            <span asp-validation-for="TermsAndConditionsForWhom" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="pt-4">
+                        <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+
+ }

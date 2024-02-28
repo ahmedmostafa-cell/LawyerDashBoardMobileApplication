@@ -1,0 +1,113 @@
+﻿@model Domains.TbLawyerPeriodCostConsult
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">علوحة التحكم/</span>  اضافة تكلفة الاستشارة بالمدة للمحامي
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header"> اضافة تكلفة الاستشارة بالمدة للمحامي</h5>
+                <form enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="LawyerPeriodCostConsult" asp-action="Save" class="card-body">
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input type="hidden" asp-for="LawyerPeriodCostConsultId">
+                            <input type="hidden" asp-for="CreatedDate">
+                            <label class="form-label" for="basic-default-fullname">  اختر    المحامي</label>
+                            <select asp-items="@(new SelectList(ViewBag.userss , "Id" , "FirstName"))" asp-for="LawyerId" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر    المحامي</option>
+
+                            </select>
+                            <span asp-validation-for="LawyerId" class="text-danger"></span>
+                        </div>
+                       
+                      
+
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                  
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                           
+                            <label class="form-label" for="basic-default-fullname"> تكلفة الاستشارة</label>
+                            <input asp-for="ConsultingPeriodCost" type="text" class="form-control" id="basic-default-fullname" placeholder="   تكلفة الاستشارة" />
+                            <span asp-validation-for="ConsultingPeriodCost" class="text-danger"></span>
+                        </div>
+
+
+
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <select asp-for="ConsultingPeriod" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر    المحامي</option>
+                                <option value="ثلاثون دقيقة">ثلاثون دقيقة</option>
+                                <option value="ستون دقيقة">ستون دقيقة</option>
+                                <option value="تسعون دقيقة"> تسعون دقيقة</option>
+
+                            </select>
+                            <span asp-validation-for="ConsultingPeriod" class="text-danger"></span>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="pt-4">
+                        <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+
+                    </div>
+                   
+
+
+
+
+                   
+
+ 
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+
+ }

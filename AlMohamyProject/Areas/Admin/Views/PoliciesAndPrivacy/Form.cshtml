@@ -1,0 +1,67 @@
+﻿@model Domains.TbPoliciesAndPrivacy
+@inject Microsoft.AspNetCore.Identity.SignInManager<BL.ApplicationUser> signInManager
+@inject Microsoft.AspNetCore.Identity.UserManager<BL.ApplicationUser> userManager
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">لوحة التحكم/</span>  السياسة و الخصوصية
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header">عناصر  السياسة و الخصوصية</h5>
+                <form enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="PoliciesAndPrivacy" asp-action="Save" class="card-body">
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input type="hidden" asp-for="PoliciesAndPrivacyId">
+                            <input type="hidden" asp-for="CreatedDate">
+                           
+                            <label class="form-label" for="basic-default-fullname"> عنوان  السياسة و الخصوصية</label>
+                            <input asp-for="PoliciesAndPrivacyTitle" type="text" class="form-control" id="basic-default-fullname" placeholder=" عنوان  السياسة و الخصوصية" />
+                            <span asp-validation-for="PoliciesAndPrivacyTitle" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                           
+
+                            <label class="form-label" for="basic-default-fullname">     تفاصيل السياسة و الخصوصية</label>
+                            <input asp-for="PoliciesAndPrivacyDescription" type="text" class="form-control" id="basic-default-fullname" placeholder="     تفاصيل السياسة و الخصوصية" />
+                            <span asp-validation-for="PoliciesAndPrivacyDescription" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="multicol-country">موجهة لمن</label>
+                            <select  asp-for="PoliciesAndPrivacyForWhom" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر موجهة لمن</option>
+                                <option value="المحامي">المحامي</option>
+                                <option value="المستخدم">المستخدم</option>
+                            </select>
+                            <span asp-validation-for="PoliciesAndPrivacyForWhom" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="pt-4">
+                        <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+
+ }

@@ -1,0 +1,514 @@
+﻿@model Domains.TbConsultingEstablish
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">علوحة التحكم/</span>  انواع الاستشارة طلب محدد او غير محدد
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header"> الاستشارة</h5>
+                <form enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="ConsultingType" asp-action="Save" class="card-body">
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input type="hidden" asp-for="ConsultingId">
+                            <input type="hidden" asp-for="CreatedDate">
+                            <label class="form-label" for="basic-default-fullname">رقم الاستشارة</label>
+                            <input disabled asp-for="RequestNo" type="text" class="form-control" id="basic-default-fullname" placeholder="رقم الاستشارة" />
+                          
+                        </div>
+                       
+                      
+
+                    </div>
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                           
+                            <label class="form-label" for="basic-default-fullname">حالة الطلب</label>
+                            <input disabled asp-for="RequestStatus" type="text" class="form-control" id="basic-default-fullname" placeholder="   حالة الطلب" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">صيغة الاستشارة</label>
+                            <input disabled asp-for="RequestText" type="text" class="form-control" id="basic-default-fullname" placeholder="   صيغة الاستشارة" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <br />
+                    <br />
+                    <br />
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                           
+                            <a href="@string.Format("/Uploads/{0}",Model.RequestDocument)" class="btn btn-primary">الملف المرفق</a>
+
+                        </div>
+
+
+
+                    </div>
+
+                    <br />
+                    <br />
+                    <br />
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">تسجيل صوتي</label>
+                             <audio controls autobuffer="autobuffer" title="Ahmed">
+                                <source src='@string.Format("/Uploads/{0}",Model.RequestAudio)' />
+                                </audio>
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">نوع الطلب</label>
+                            <input disabled asp-for="RequestType" type="text" class="form-control" id="basic-default-fullname" placeholder="نوع الطلب" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">الاسم الاول للمستخدم </label>
+                            <input disabled asp-for="UserFirstName" type="text" class="form-control" id="basic-default-fullname" placeholder="الاسم الاول للمستخدم" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+                  
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">اسم العائلة للمستخدم </label>
+                            <input disabled asp-for="UserFamilyName" type="text" class="form-control" id="basic-default-fullname" placeholder="اسم العائلة للمستخدم" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                      <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">صورة المستخدم </label>
+                            <img src="@string.Format("/Uploads/{0}",Model.UserImage)"
+                                 alt="user-avatar"
+                                 class="d-block rounded"
+                                 height="100"
+                                 width="100"
+                                 id="uploadedAvatar" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">ايميل المستخدم</label>
+                            <input disabled asp-for="UserEmail" type="text" class="form-control" id="basic-default-fullname" placeholder="ايميل المستخدم" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">اسم المحامي</label>
+                            <input disabled asp-for="LawyerName" type="text" class="form-control" id="basic-default-fullname" placeholder="اسم  المحامي " />
+
+                        </div>
+
+
+
+                    </div>
+
+
+                     <div class="row g-3">
+                       <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">صورة المحامي</label>
+                            <img src="@string.Format("/Uploads/{0}",Model.LawyerImage)"
+                                 alt="user-avatar"
+                                 class="d-block rounded"
+                                 height="100"
+                                 width="100"
+                                 id="uploadedAvatar" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">نوع طلب الاستشارة</label>
+                            <input disabled asp-for="ConsultingType" type="text" class="form-control" id="basic-default-fullname" placeholder="نوع طلب الاستشارة" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">اسم القسم الرئيسي للاستشارة</label>
+                            <input disabled asp-for="MainConsultingName" type="text" class="form-control" id="basic-default-fullname" placeholder="اسم القسم الرئيسي للاستشارة" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">اسم القسم الفرعي للاستشارة</label>
+                            <input disabled asp-for="SubConsultingName" type="text" class="form-control" id="basic-default-fullname" placeholder="اسم القسم الفرعي للاستشارة" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">مدة الاستشارة</label>
+                            <input disabled asp-for="ConsultingPeriod" type="text" class="form-control" id="basic-default-fullname" placeholder="مدة الاستشارة" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">تكلفة الاستشارة عل حسب مدتها </label>
+                            <input disabled asp-for="ConsultingPeriodCost" type="text" class="form-control" id="basic-default-fullname" placeholder="تكلفة الاستشارة عل حسب مدتها" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">قيمة الاستشارة بعد الخصم</label>
+                            <input disabled asp-for="PromocodeDiscountValue" type="text" class="form-control" id="basic-default-fullname" placeholder="قيمة الاستشارة بعد الخصم" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">ضريبة القيمة المضافة</label>
+                            <input disabled asp-for="ConsultingVatvalue" type="text" class="form-control" id="basic-default-fullname" placeholder="ضريبة القيمة المضافة" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                      <div class="row g-3">
+                       <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">اجمالي مبلغ الاستشارة</label>
+                            <input disabled asp-for="TheTotal" type="text" class="form-control" id="basic-default-fullname" placeholder="اجمالي مبلغ الاستشارة" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname"> المبلغ المدفوع</label>
+                            <input disabled asp-for="TheConsultingPaidValue" type="text" class="form-control" id="basic-default-fullname" placeholder="المبلغ المدفوع" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">نوع التحويل</label>
+                            <input disabled asp-for="TransactionType" type="text" class="form-control" id="basic-default-fullname" placeholder="نوع التحويل" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">اليوم الذي ستجري فيه الاستشارة</label>
+                            <input disabled asp-for="ConsultingDateAndTime" type="text" class="form-control" id="basic-default-fullname" placeholder="اليوم الذي ستجري فيه الاستشارة" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">الوقت المتبقي حتي الاستشارة</label>
+                            <input disabled asp-for="TimeRemainingForConsultingToStart" type="text" class="form-control" id="basic-default-fullname" placeholder="الوقت المتبقي حتي الاستشارة" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">اسم المنطقة</label>
+                            <input disabled asp-for="AreaName" type="text" class="form-control" id="basic-default-fullname" placeholder="  اسم المنطقة " />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">اسم المدينة</label>
+                            <input disabled asp-for="CityName" type="text" class="form-control" id="basic-default-fullname" placeholder="   اسم المدينة" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">هل المستخدم طلب تفويض للمحامي</label>
+                            <input disabled asp-for="IsDelegationAsked" type="text" class="form-control" id="basic-default-fullname" placeholder="هل المستخدم طلب تفويض للمحامي" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">مبلغ التفويض المرسل من المستخدم</label>
+                            <input disabled asp-for="DelegationValueSentFromUser" type="text" class="form-control" id="basic-default-fullname" placeholder="مبلغ التفويض المرسل من المستخدم" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">مبلغ التفويض المرسل من المحامي</label>
+                            <input disabled asp-for="DelegationValueSentFromLawyer" type="text" class="form-control" id="basic-default-fullname" placeholder="مبلغ التفويض المرسل من المحامي" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+                     <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">مبلغ التفويض المتفق عليه</label>
+                            <input disabled asp-for="DelegationValueApproved" type="text" class="form-control" id="basic-default-fullname" placeholder="مبلغ التفويض المتفق عليه" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">هل المستخدم وافق عل التفويض</label>
+                            <input disabled asp-for="DelegationReplyBack" type="text" class="form-control" id="basic-default-fullname" placeholder="هل المستخدم وافق عل التفويض" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+                     <div class="row g-3">
+                       <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">سبب رفض التفويض المقدم</label>
+                            <input disabled asp-for="DelegationRejectionCause" type="text" class="form-control" id="basic-default-fullname" placeholder="سبب رفض التفويض المقدم" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">عدد العروض</label>
+                            <input disabled asp-for="NoOfOffers" type="text" class="form-control" id="basic-default-fullname" placeholder="عدد العروض " />
+
+                        </div>
+
+
+
+                    </div>
+ 
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+
+ }

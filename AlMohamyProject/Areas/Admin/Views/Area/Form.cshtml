@@ -1,0 +1,56 @@
+﻿@model Domains.TbArea
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">لوحة التحكم/</span>  المناطق
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header">عناصر المناطق</h5>
+                <form enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="Area" asp-action="Save" class="card-body">
+                 
+                  
+                  <div class="row g-3">
+                    <div class="col-md-12">
+                       <input type="hidden" asp-for="AreaId">
+                            <input type="hidden" asp-for="CreatedDate">
+                            <label class="form-label" for="basic-default-fullname">اسم المنطقة</label>
+                            <input asp-for="AreaName" type="text" class="form-control" id="basic-default-fullname" placeholder="اسم المنطقة" />
+                            <span asp-validation-for="AreaName" class="text-danger"></span>
+                    </div>
+                   
+                    <div class="col-md-12">
+                      <label class="form-label" for="multicol-country">المدينة التابعة ليها</label>
+                            <select asp-for="CityId" asp-items="@(new SelectList(ViewBag.cities , "CityId" , "CityName"))" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر المدينة التابعة ليها</option>
+                               
+                      </select>
+                            <span asp-validation-for="CityId" class="text-danger"></span>
+                    </div>
+                   
+                  </div>
+                  <div class="pt-4">
+                    <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+                  
+                  </div>
+                </form>
+              </div>
+        </div>
+      
+    </div>
+
+
+ </div>
+ @section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+     
+    }
+
+ }

@@ -1,0 +1,135 @@
+﻿@model Domains.TbLawyersMainConsultings
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">علوحة التحكم/</span>  استشارات المحاميين
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header"> الاستشارة</h5>
+                <form enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="LawyersMainConsultings" asp-action="Save" class="card-body">
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input type="hidden" asp-for="LawyersMainConsultingsId">
+                            <input type="hidden" asp-for="CreatedDate">
+                            <input type="hidden" asp-for="LawyerUserName">
+                            <input type="hidden" asp-for="ConsultingNo">
+                            <input type="hidden" asp-for="DaysOfWork">
+                            <input type="hidden" asp-for="HoursOfWork">
+                            <input type="hidden" asp-for="EvaluationNoOfStatrs">
+                            <input type="hidden" asp-for="EvaluationNumerical">
+                            <input type="hidden" asp-for="YearsOfExperience">
+                            <input type="hidden" asp-for="DocumentA">
+                             <input type="hidden" asp-for="DocumentB">
+                            <input type="hidden" asp-for="DocumentC">
+                            <input type="hidden" asp-for="DocumentD">
+                            <input type="hidden" asp-for="IdentityDocument">
+                            <input type="hidden" asp-for="ShortDescription">
+                            <input type="hidden" asp-for="OTP">
+                            <input type="hidden" asp-for="Image">
+                            <input type="hidden" asp-for="FirstName">
+                            <input type="hidden" asp-for="FamilyName">
+                            <input type="hidden" asp-for="UserType">
+                            <input type="hidden" asp-for="Status">
+                            <input type="hidden" asp-for="DeviceToken">
+                            <input type="hidden" asp-for="MainConsultingTitle">
+                            <input type="hidden" asp-for="MainConsultingImage">
+                             <input type="hidden" asp-for="IsActivated">
+                            
+                          
+                        </div>
+                       
+                      
+
+                    </div>
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label" for="multicol-country">قسم استشارة رئيسية</label>
+                            <select asp-items="@(new SelectList(ViewBag.lawyers , "Id" , "UserName"))" asp-for="LawyerId" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر  اسم المحامي</option>
+
+                            </select>
+                            <span asp-validation-for="LawyerId" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                     <div class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label" for="multicol-country">قسم استشارة رئيسية</label>
+                            <select asp-items="@(new SelectList(ViewBag.mainconsultings , "MainConsultingId" , "MainConsultingTitle"))" asp-for="MainConsultingId" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر  اسم الاستشارة الرئيسية</option>
+
+                            </select>
+                            <span asp-validation-for="MainConsultingId" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                  
+                    
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                           
+                            <label class="form-label" for="basic-default-fullname">تكلفة استشارة ثلاثون دقيقة</label>
+                            <input  asp-for="Consulting30MinutesCost" type="text" class="form-control" id="basic-default-fullname" placeholder="تكلفة استشارة ثلاثون دقيقة" />
+                            <span asp-validation-for="Consulting30MinutesCost" class="text-danger"></span>
+                        </div>
+
+
+
+                    </div>
+
+                      <div class="row g-3">
+                        <div class="col-md-12">
+                           
+                            <label class="form-label" for="basic-default-fullname">تكلفة استشارة ستون دقيقة</label>
+                            <input  asp-for="Consulting60MinutesCost" type="text" class="form-control" id="basic-default-fullname" placeholder="تكلفة استشارة ستون دقيقة" />
+                            <span asp-validation-for="Consulting60MinutesCost" class="text-danger"></span>
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">تكلفة استشارة تسعون دقيقة</label>
+                            <input  asp-for="Consulting90MinutesCost" type="text" class="form-control" id="basic-default-fullname" placeholder="تكلفة استشارة تسعون دقيقة" />
+                            <span asp-validation-for="Consulting90MinutesCost" class="text-danger"></span>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+
+ }

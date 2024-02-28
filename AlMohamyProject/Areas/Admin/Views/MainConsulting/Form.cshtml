@@ -1,0 +1,105 @@
+﻿@model Domains.TbMainConsulting
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">الوحة التحكم/</span>  اضافة استشارات رئيسية
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header">عناصر الاستشارات الرئيسية </h5>
+                <form id="form" enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="MainConsulting" asp-action="Save" class="card-body">
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input type="hidden" asp-for="MainConsultingId">
+                            <input type="hidden" asp-for="CreatedDate">
+                            <label class="form-label" for="basic-default-fullname">اسم الاستشارة الرئيسية </label>
+                            <input asp-for="MainConsultingTitle" type="text" class="form-control" id="basic-default-fullname" placeholder="اسم الاستشارة الرئيسية" />
+                            <span asp-validation-for="MainConsultingTitle" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">تفاصيل الاستشارة</label>
+                            <input asp-for="Notes" type="text" class="form-control" id="basic-default-company" placeholder="تفاصيل الاستشارة" />
+                            <span asp-validation-for="Notes" class="text-danger"></span>
+                        </div>
+                       
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">صورة الاستشارة</label>
+                            <input type="file" class="form-control" required name="files" id="selectedFile">
+
+                            <span class="text-danger" id="error"></span>
+
+                        </div>
+
+
+
+
+                       
+
+
+
+
+                        <div class="pt-4">
+                            <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+    <script>
+        //alert("ahmed");
+        const logo = document.getElementById('selectedFile');
+        const license = document.getElementById('selectedFiles');
+        const form = document.getElementById('form')
+        const erroElement = document.getElementById('error')
+        const erroElement1 = document.getElementById('error1')
+        form.addEventListener('submit', (e) => {
+            //e.preventDefault();
+            let messages = [];
+            let messages2 = [];
+            if (logo.value === '' || logo.value == null) {
+                //alert('ahmed');
+                messages.push('This field is required');
+                erroElement.innerHTML = messages;
+            }
+            else {
+                messages = [];
+                erroElement.innerHTML = messages;
+
+            }
+            if (license.value === '' || license.value == null) {
+                //alert('ahmed');
+                messages2.push('This field is required');
+                erroElement1.innerHTML = messages2;
+            }
+            else {
+                messages = [];
+                erroElement1.innerHTML = messages2;
+
+            }
+
+
+        });
+    </script>
+
+ }

@@ -1,0 +1,124 @@
+﻿@model AlMohamyProject.Models.HomePageModel
+@inject Microsoft.AspNetCore.Identity.UserManager<BL.ApplicationUser> userManager
+<!-- Content Header (Page header) -->
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4"><span class="text-muted fw-light">لوحة التحكم /</span>  عرض تاريخ الدخول</h4>
+
+
+    <div class="row g-4 mb-4">
+        <div class="col-sm-6 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-start justify-content-between">
+                        <div class="content-left">
+                            <span>عدد الزيارات</span>
+                            <div class="d-flex align-items-end mt-2">
+                                <h4 id="VisitsNo" class="mb-0 me-2"></h4>
+                                @*   <small class="text-success">(+29%)</small>*@
+                            </div>
+                            <small>المستخدمين </small>
+                        </div>
+                        <span class="badge bg-label-primary rounded p-2">
+                            <i class="bx bx-user bx-sm"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        @* <div class="col-sm-6 col-xl-3">
+        <div class="card">
+        <div class="card-body">
+        <div class="d-flex align-items-start justify-content-between">
+        <div class="content-left">
+        <span>Pending Users</span>
+        <div class="d-flex align-items-end mt-2">
+        <h4 class="mb-0 me-2">237</h4>
+        <small class="text-success">(+42%)</small>
+        </div>
+        <small>Last week analytics</small>
+        </div>
+        <span class="badge bg-label-warning rounded p-2">
+        <i class="bx bx-user-voice bx-sm"></i>
+        </span>
+        </div>
+        </div>
+        </div>
+        </div>*@
+    </div>
+    <div class="col-md-6">
+        <label class="form-label" for="multicol-country">اسم المستخدم</label>
+        <select asp-items="@(new SelectList(ViewBag.Regions , "Id" , "FirstName"))" onchange="myFunction()" id="employee" class="select2 form-select" data-allow-clear="true">
+            <option value="">اختر  اسم المستخدم </option>
+
+        </select>
+
+    </div>
+
+    <div class="col-md-6">
+          <div class="form-group">
+            <label for="exampleInputPassword1">من تاريخ</label>
+            <input type="datetime-local" class="form-control" id="exampleInputPassword1" onchange="myFunctionDate1()" placeholder=" صيغة العرض" />
+
+          </div>
+
+    </div>
+
+
+    <div class="col-md-6">
+        <label for="exampleInputPassword2">الي تاريخ</label>
+        <input type="datetime-local" class="form-control" id="exampleInputPassword2" onchange="myFunctionDate2()" placeholder=" صيغة العرض" />
+
+    </div>
+
+    <br />
+    <br />
+    <div class="card">
+        <div class="card-header">
+        </div>
+        <div class="data_table">
+            <table id="example1" class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>  اسم الشخص المسجل  </th>
+                        <th>  تاريخ تسجيل الدخول</th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @* @foreach (var item in Model.lstLogHistories)
+                    {
+
+                    <tr>
+                    <td>@userManager.Users.Where(a=> a.Id == item.LoggedUserId.ToString()).FirstOrDefault().FirstName</td>
+                    <td>
+                    @item.CreatedDate
+                    </td>
+
+
+
+
+
+                    </tr>
+
+                    }*@
+
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>  اسم الشخص المسجل  </th>
+                        <th>  تاريخ تسجيل الدخول</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+</div>
+
+<script src="~/js/ahmed.js" ></script>

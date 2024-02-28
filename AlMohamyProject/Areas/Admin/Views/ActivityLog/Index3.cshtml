@@ -1,0 +1,158 @@
+﻿@model AlMohamyProject.Models.HomePageModel
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4"><span class="text-muted fw-light">لوحة التحكم /</span>  معدل الزيارات خلال الاسبوع الماضي و الحالي</h4>
+
+   
+
+    <br />
+    <br />
+    <div class="card" >
+
+        <div class="data_table">
+            <table id="example" class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>اسم الزائر   </th>
+                       
+                        <th>اخر زيارة</th>
+
+                        
+                       
+                     
+                      
+                       
+                    
+                       
+
+                     
+                      
+                      
+                      
+                    
+                      
+
+                    </tr>
+                </thead>
+                <tbody>
+                  @*  @foreach (var item in Model.lstConsultingEstablishs)
+                    {
+
+                        <tr>
+                            <td>@item.RequestNo</td>
+                            <td>
+                                @item.RequestStatus
+                            </td>
+                            <td>
+                                @item.RequestText
+                            </td>
+
+
+                            <td class="product-img">
+                                <a href="@string.Format("/Uploads/{0}",item.RequestDocument)" class="btn btn-primary">Read Now</a>
+                            </td>
+                            <td>
+                                <audio controls autobuffer="autobuffer" title="Ahmed">
+                                    <source src='@string.Format("/Uploads/{0}",item.RequestAudio)' />
+                                </audio>
+                            </td>
+                            <td>
+                                @item.RequestType
+                            </td>
+                            <td>
+                                @item.UserFirstName
+                            </td>
+                            <td>
+                                @item.UserFamilyName
+                            </td>
+                            <td>
+                                @item.UserImage
+                            </td>
+                            <td>
+                                @item.UserEmail
+                            </td>
+                            <td>
+                                @item.LawyerName
+                            </td>
+                            <td>
+                                @item.LawyerImage
+                            </td>
+                            <td>
+                                @item.ConsultingType
+                            </td>
+                            <td>
+                                @item.MainConsultingName
+                            </td>
+                            <td>
+                                @item.SubConsultingName
+                            </td>
+                            <td>
+                                @item.ConsultingPeriod
+                            </td>
+                            <td>
+                                @item.ConsultingPeriodCost
+                            </td>
+                            <td>
+                                @item.PromocodeDiscountValue
+                            </td>
+                            <td>
+                                @item.TheTotal
+                            </td>
+                            <td>
+                                @item.TheConsultingPaidValue
+                            </td>
+                            <td>
+                                @item.TransactionType
+                            </td>
+                            <td>
+                                @item.ConsultingDateAndTime
+                            </td>
+                            <td>
+                                @item.TimeRemainingForConsultingToStart
+                            </td>
+                            <td>
+                                @item.AreaName
+                            </td>
+                            <td>
+                                @item.CityName
+                            </td>
+                            <td>
+                                @item.IsDelegationAsked
+                            </td>
+                            <td>
+                                @item.DelegationValueSentFromUser
+                            </td>
+                            <td>
+                                @item.DelegationValueSentFromLawyer
+                            </td>
+                            <td>
+                                @item.DelegationValueApproved
+                            </td>
+                            <td>
+                                @item.DelegationReplyBack
+                            </td>
+                            <td>
+                                @item.DelegationRejectionCause
+                            </td>
+                            <td>
+                                @item.NoOfOffers
+                            </td>
+                            <td>
+                                @item.CreatedDate
+                            </td>
+                        </tr>
+
+                    }*@
+
+
+
+                </tbody>
+            </table>
+        </div>
+
+      
+    </div>
+  
+</div>
+
+
+<script src="~/js/activitylog.js"></script>

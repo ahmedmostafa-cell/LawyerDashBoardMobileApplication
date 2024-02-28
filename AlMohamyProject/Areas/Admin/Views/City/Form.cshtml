@@ -1,0 +1,49 @@
+﻿@model Domains.TbCity
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">لوحة التحكم/</span>  المدينة
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header">عناصر المدينة</h5>
+                <form enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="City" asp-action="Save" class="card-body">
+                 
+                  
+                  <div class="row g-3">
+                    <div class="col-md-12">
+                       <input type="hidden" asp-for="CityId">
+                            <input type="hidden" asp-for="CreatedDate">
+                            <label class="form-label" for="basic-default-fullname">اسم المدينة</label>
+                            <input asp-for="CityName" type="text" class="form-control" id="basic-default-fullname" placeholder=" اسم المدينة " />
+                            <span asp-validation-for="CityName" class="text-danger"></span>    
+                    </div>
+                   
+                   
+                   
+                  </div>
+                  <div class="pt-4">
+                    <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+                  
+                  </div>
+                </form>
+              </div>
+        </div>
+      
+    </div>
+
+
+ </div>
+ @section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+     
+    }
+
+ }

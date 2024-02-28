@@ -1,0 +1,73 @@
+﻿@model Domains.TbPromocode
+@inject Microsoft.AspNetCore.Identity.SignInManager<BL.ApplicationUser> signInManager
+@inject Microsoft.AspNetCore.Identity.UserManager<BL.ApplicationUser> userManager
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">لوحة التحكم/</span>  السياسة و الخصوصية
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header">عناصر  البروموكود</h5>
+                <form enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="Promocode" asp-action="Save" class="card-body">
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input type="hidden" asp-for="PromocodeId">
+                            <input type="hidden" asp-for="CreatedDate">
+
+                            <label class="form-label" for="basic-default-fullname"> عنوان  البروموكود</label>
+                            <input asp-for="PromocodeTitle" type="text" class="form-control" id="basic-default-fullname" placeholder=" عنوان  البروموكود    " />
+                            <span asp-validation-for="PromocodeTitle" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                           
+
+                            <label class="form-label" for="basic-default-fullname">     قيمة  الخصم</label>
+                            <input asp-for="PromocodeDiscountPercent" type="text" class="form-control" id="basic-default-fullname" placeholder="        قيمة  الخصم" />
+                            <span asp-validation-for="PromocodeDiscountPercent" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+
+
+                            <label class="form-label" for="basic-default-fullname">     تاريخ البداية</label>
+                            <input asp-for="CreatedBy" type="datetime-local" class="form-control" id="basic-default-fullname" placeholder="        قيمة  الخصم" />
+                            <span asp-validation-for="CreatedBy" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+
+
+                            <label class="form-label" for="basic-default-fullname">     تاريخ النهاية</label>
+                            <input asp-for="UpdatedBy" type="datetime-local" class="form-control" id="basic-default-fullname" placeholder="        قيمة  الخصم" />
+                            <span asp-validation-for="UpdatedBy" class="text-danger"></span>
+                        </div>
+
+                      
+
+                    </div>
+                    <div class="pt-4">
+                        <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+
+ }
